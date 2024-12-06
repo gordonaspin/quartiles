@@ -19,7 +19,6 @@ def main():
     els = str(input("enter all fragments separated by spaces:")).lower().split()
 
     with open(r'words_alpha.txt', 'r') as fp:
-        # read all lines using readline()
         words = fp.read().splitlines()
 
     matches = 0
@@ -29,8 +28,6 @@ def main():
         permutations = list(itertools.permutations(els, i))
         for perm in permutations:
             word = "".join(perm)
-            if word == "frivolousness":
-               pass
             if binary_search(words, word) != -1:
                 sub_matches = sub_matches + 1
                 matches = matches + 1
