@@ -1,3 +1,4 @@
+import sys
 import itertools
 
 def binary_search(arr, target):
@@ -15,8 +16,16 @@ def binary_search(arr, target):
 
     return -1
 
-def main():    
-    els = str(input("enter all fragments separated by spaces:")).lower().split()
+def main():
+    arguments_list = sys.argv[1:]
+    els = " ".join(arguments_list)    
+    print(els)
+    if len(els) == 0:
+        print("enter all fragments on command line")
+        quit()
+
+    els = els.lower().split()
+    #els = str(input("enter all fragments separated by spaces:")).lower().split()
 
     with open(r'words_alpha.txt', 'r') as fp:
         dictionary_words = fp.read().splitlines()
